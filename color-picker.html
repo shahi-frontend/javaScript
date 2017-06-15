@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+</head>
+<style>
+table, tr, td{
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+table {
+    width: 50%;
+}
+td {
+    height: 50px;
+}
+#box{
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000;
+}
+</style>
+<body>
+
+  <script type="text/javascript">
+
+    function getColor(elem){
+      var bg_color = elem.style.backgroundColor;
+      document.getElementById("box").addEventListener("click", function(){
+        this.style.backgroundColor = bg_color;
+      });
+    }
+
+    function sorter(array){
+      var count = array.length - 1;
+      var swap, j, i;
+
+      for(j=0; j<count; j++){
+        for(i=0; i<count; i++){
+          if(array[i] > array[i + 1]){
+            swap = array[i + 1];
+            array[i + 1] = array[i];
+            array[i] = swap;
+          }
+        }
+      }
+      return array;
+    }
+
+    console.log(sorter([9, 2, 5, 36, 7, 1, 8, 4]));
+
+</script>
+
+<table>
+  <tr>
+    <td class="pallete-color" style="background-color: #003300" onClick="getColor(this)"></td>
+    <td class="pallete-color" style="background-color: #003366" onClick="getColor(this)"></td>
+    <td class="pallete-color" style="background-color: #000080" onClick="getColor(this)"></td>
+    <td class="pallete-color" style="background-color: #333399" onClick="getColor(this)"></td>
+    <td class="pallete-color" style="background-color: #008000" onClick="getColor(this)"></td>
+  </tr>
+  <tr>
+    <td class="pallete-color" style="background-color: #008080" onClick="getColor(this)"></td>
+    <td class="pallete-color" style="background-color: #0000ff" onClick="getColor(this)"></td>
+    <td class="pallete-color" style="background-color: #666699" onClick="getColor(this)"></td>
+    <td class="pallete-color" style="background-color: #339966" onClick="getColor(this)"></td>
+    <td class="pallete-color" style="background-color: #33cccc" onClick="getColor(this)"></td>
+  </tr>
+</table>
+<br/><br/><br/><br/><br/><br/><br/>
+<div id="box"></div>
+<br/><br/><br/>
+<button type="button" id="redo">REDO</button>
+<button type="button" id="undo">UNDO</button>
+</body>
+</html>
